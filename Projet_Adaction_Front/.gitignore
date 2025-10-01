@@ -41,10 +41,7 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
-<<<<<<< HEAD
-=======
 
 # AI
-.claude
-.github
->>>>>>> 61273b5409e7b35b367bee268caddf376e21eb99
+/.claude
+/.github
