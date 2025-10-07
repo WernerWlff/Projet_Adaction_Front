@@ -20,7 +20,7 @@ donation_points: number
 })
 
 export class VolunteerService {
-  private apiUrl = "http://8080/api/volunteers";
+  private apiUrl = "/api/volunteers";
 
   constructor(private http: HttpClient) {}
 

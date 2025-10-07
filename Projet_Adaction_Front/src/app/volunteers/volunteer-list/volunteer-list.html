@@ -1,8 +1,16 @@
-<h2>Liste des bénévoles</h2>
+<div class="volunteers-container">
+  <h2>Liste des bénévoles</h2>
 
-<ul>
-  <li *ngFor="let v of volunteers">
-    <strong>{{ v.name }}</strong> - {{ v.email }} - {{ v.location }}
-  </li>
-</ul>
-
+  <div class="volunteer-list">
+    <div class="volunteer-card" *ngFor="let v of volunteers">
+      <div class="volunteer-info">
+        <strong>{{ v.firstname }} {{ v.lastname }}</strong>
+        <div class="volunteer-details">
+          <span>📧 {{ v.email }}</span>
+          <span>📍 {{ v.location }}</span>
+          <span>🌟 Points: {{ v.total_points }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
