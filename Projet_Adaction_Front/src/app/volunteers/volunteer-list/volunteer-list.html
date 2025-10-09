@@ -6,9 +6,11 @@
       <div class="volunteer-info">
         <strong>{{ v.firstname }} {{ v.lastname }}</strong>
         <div class="volunteer-details">
-          <span>📧 {{ v.email }}</span>
-          <span>📍 {{ v.location }}</span>
-          <span>🌟 Points: {{ v.total_points }}</span>
+          <ul>
+            <li>📧 {{ v.email }}</li>
+            <li>📍 {{ v.location }}</li>
+            <li>🌟 Points: {{ v.total_points }}</li>
+          </ul>
         </div>
       </div>
     </div>
