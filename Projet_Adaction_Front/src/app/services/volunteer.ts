@@ -24,7 +24,7 @@ export class VolunteerService {
 
   constructor(private http: HttpClient) {}
 
-  getVolunteers(): Observable<Volunteer[]> {
+  getAllVolunteers(): Observable<Volunteer[]> {
     return this.http.get<Volunteer[]>(this.apiUrl);
   }
 }

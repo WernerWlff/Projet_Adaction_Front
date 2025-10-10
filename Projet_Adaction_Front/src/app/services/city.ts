@@ -13,7 +13,13 @@ export interface City{
 @Injectable({
   providedIn: 'root'
 })
-export class City {
+export class CityService {
   private ApiUrl = "./api/cities";
+
+  constructor(private http: HttpClient){}
+
+  getAllCities(): Observable<City[]> {
+    return this.http.get<City[]>(this.ApiUrl);  
+  }
 }
 
