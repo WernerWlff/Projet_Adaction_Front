@@ -20,7 +20,21 @@ export interface Collect{
 @Injectable({
   providedIn: 'root'
 })
-export class Collect {
+export class CollectService {
   private ApiUrl = "./api/collects";
+
+  constructor(private http: HttpClient) {}
+
+  createCollect(collect: Collect): Observable<Collect>{
+    return this.http.post<Collect>(this.ApiUrl, collect);
+  }
+
+  updateCollect(collect: Collect): Observable<Collect>{
+    return this.http.put<Collect>(this.ApiUrl, collect);
+  }
+
+  getAllCollects(): Observable<Collect[]>{
+    return this.http.get<Collect[]>(this.ApiUrl);
+  }
 
 }

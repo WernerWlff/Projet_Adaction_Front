@@ -16,7 +16,7 @@ export class VolunteerListComponent implements OnInit {
   constructor(private volunteerService: VolunteerService) {}
 
   ngOnInit(): void {
-    this.volunteerService.getVolunteers().subscribe(data => {
+    this.volunteerService.getAllVolunteers().subscribe(data => {
       this.volunteers = data;
     });
   }
