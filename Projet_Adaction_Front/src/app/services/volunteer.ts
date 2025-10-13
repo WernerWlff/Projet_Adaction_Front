@@ -27,6 +27,11 @@ export class VolunteerService {
   getVolunteers(): Observable<Volunteer[]> {
     return this.http.get<Volunteer[]>(this.apiUrl);
   }
+
+ addVolunteer(volunteer: Volunteer): Observable<Volunteer> {
+    return this.http.post<Volunteer>(this.apiUrl, volunteer);
+  }
+
 }
 
 
