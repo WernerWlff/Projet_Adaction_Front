@@ -1,0 +1,51 @@
+<h2>Enregistrer une collecte</h2>
+
+<form [formGroup]="collectForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="date">Date :</label>
+    <input type="date" id="date" formControlName="date" required>
+  </div>
+
+  <div>
+    <label for="city">Ville :</label>
+    <select id="city" formControlName="city_id" required>
+      <option value="">Sélectionner une ville</option>
+      <option *ngFor="let city of cities" [value]="city.id">{{ city.name }}</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="glass_nb">Verres :</label>
+    <input type="number" id="glass_nb" formControlName="glass_nb" required>
+  </div>
+
+  <div>
+    <label for="butt_nb">Mégots :</label>
+    <input type="number" id="butt_nb" formControlName="butt_nb" required>
+  </div>
+
+  <div>
+    <label for="plastic_nb">Plastique :</label>
+    <input type="number" id="plastic_nb" formControlName="plastic_nb" required>
+  </div>
+
+  <div>
+    <label for="electronics_nb">Électronique :</label>
+    <input type="number" id="electronics_nb" formControlName="electronics_nb" required>
+  </div>
+
+  <div>
+    <label for="others_nb">Autres :</label>
+    <input type="number" id="others_nb" formControlName="others_nb" required>
+  </div>
+
+  <div>
+    <label for="volunteer">Bénévole :</label>
+    <select id="volunteer" formControlName="volunteer_id" required>
+      <option value="">Sélectionner un bénévole</option>
+      <option *ngFor="let volunteer of volunteers" [value]="volunteer.id">{{ volunteer.firstname }} {{ volunteer.lastname }}</option>
+    </select>
+  </div>
+
+  <button type="submit" [disabled]="collectForm.invalid">Enregistrer</button>
+</form>
