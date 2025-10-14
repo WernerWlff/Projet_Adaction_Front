@@ -1,51 +1,97 @@
-<h2>Enregistrer une collecte</h2>
+<div class="app-container">
+  <main class="main-content">
+    <div class="card">
+      <h2 class="card-header">🗓️ Enregistrer une collecte</h2>
 
-<form [formGroup]="collectForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="date">Date :</label>
-    <input type="date" id="date" formControlName="date" required>
-  </div>
+      <form class="form-container" [formGroup]="collectForm" (ngSubmit)="onSubmit()">
+        <div>
+          <label for="date" class="form-label">Date *</label>
+          <input
+            type="date"
+            id="date"
+            formControlName="date"
+            required
+          />
+        </div>
 
-  <div>
-    <label for="city">Ville :</label>
-    <select id="city" formControlName="city_id" required>
-      <option value="">Sélectionner une ville</option>
-      <option *ngFor="let city of cities" [value]="city.id">{{ city.name }}</option>
-    </select>
-  </div>
+        <div>
+          <label for="city" class="form-label">Localisation *</label>
+          <select id="city" formControlName="city_id" required>
+            <option value="">Sélectionnez une ville</option>
+            <option *ngFor="let city of cities" [value]="city.id">
+              {{ city.name }}
+            </option>
+          </select>
+        </div>
 
-  <div>
-    <label for="glass_nb">Verres :</label>
-    <input type="number" id="glass_nb" formControlName="glass_nb" required>
-  </div>
+        <div>
+          <label for="volunteer" class="form-label"> Volontaire *</label>
+          <select id="volunteer" formControlName="volunteer_id" required>
+            <option value="">Sélectionnez un volontaire</option>
+            <option *ngFor="let volunteer of volunteers" [value] = "volunteer.id">
+              {{volunteer.firstname}}
+            </option>
+          </select>
+        </div>
 
-  <div>
-    <label for="butt_nb">Mégots :</label>
-    <input type="number" id="butt_nb" formControlName="butt_nb" required>
-  </div>
+        <div class="form-label mt-2">Type de déchet *</div>
 
-  <div>
-    <label for="plastic_nb">Plastique :</label>
-    <input type="number" id="plastic_nb" formControlName="plastic_nb" required>
-  </div>
+        <div class="waste-types-grid">
 
-  <div>
-    <label for="electronics_nb">Électronique :</label>
-    <input type="number" id="electronics_nb" formControlName="electronics_nb" required>
-  </div>
+          <div class="waste-type-row">
+            <button type="button" class="waste-type-btn">🍾 Verre</button>
+            <div class="counter">
+              <button type="button" (click)="decrement('glass_nb')">−</button>
+              <span>{{ collectForm.get('glass_nb')?.value || 0 }}</span>
+              <button type="button" (click)="increment('glass_nb')">+</button>
+            </div>
+          </div>
 
-  <div>
-    <label for="others_nb">Autres :</label>
-    <input type="number" id="others_nb" formControlName="others_nb" required>
-  </div>
+          <div class="waste-type-row">
+            <button type="button" class="waste-type-btn">🚬 Mégots de cigarette</button>
+            <div class="counter">
+              <button type="button" (click)="decrement('butt_nb')">−</button>
+              <span>{{ collectForm.get('butt_nb')?.value || 0 }}</span>
+              <button type="button" (click)="increment('butt_nb')">+</button>
+            </div>
+          </div>
 
-  <div>
-    <label for="volunteer">Bénévole :</label>
-    <select id="volunteer" formControlName="volunteer_id" required>
-      <option value="">Sélectionner un bénévole</option>
-      <option *ngFor="let volunteer of volunteers" [value]="volunteer.id">{{ volunteer.firstname }} {{ volunteer.lastname }}</option>
-    </select>
-  </div>
+          <div class="waste-type-row">
+            <button type="button" class="waste-type-btn">🧴 Plastique</button>
+            <div class="counter">
+              <button type="button" (click)="decrement('plastic_nb')">−</button>
+              <span>{{ collectForm.get('plastic_nb')?.value || 0 }}</span>
+              <button type="button" (click)="increment('plastic_nb')">+</button>
+            </div>
+          </div>
 
-  <button type="submit" [disabled]="collectForm.invalid">Enregistrer</button>
-</form>
+          <div class="waste-type-row">
+            <button type="button" class="waste-type-btn">💻 Électronique</button>
+            <div class="counter">
+              <button type="button" (click)="decrement('electronics_nb')">−</button>
+              <span>{{ collectForm.get('electronics_nb')?.value || 0 }}</span>
+              <button type="button" (click)="increment('electronics_nb')">+</button>
+            </div>
+          </div>
+
+          <div class="waste-type-row">
+            <button type="button" class="waste-type-btn">❓ Autre</button>
+            <div class="counter">
+              <button type="button" (click)="decrement('others_nb')">−</button>
+              <span>{{ collectForm.get('others_nb')?.value || 0 }}</span>
+              <button type="button" (click)="increment('others_nb')">+</button>
+            </div>
+          </div>
+        </div>
+
+        <button class="submit-btn mt-4" type="submit" [disabled]="collectForm.invalid">
+          💾 Enregistrer
+        </button>
+      </form>
+    </div>
+
+    <footer class="mt-4 text-center text-sm text-gray-600">
+      🌱 Merci d'agir pour la planète. Vous faites partie du changement.
+    </footer>
+  </main>
+</div>
