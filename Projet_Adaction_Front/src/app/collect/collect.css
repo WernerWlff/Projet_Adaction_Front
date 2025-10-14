@@ -1,0 +1,112 @@
+.waste-type-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.counter button {
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 0.25rem;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.counter button:hover {
+  background-color: #e5e7eb;
+}
+
+.counter span {
+  min-width: 1.5rem;
+  text-align: center;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+/* --- Fix layout collect page --- */
+
+.main-content {
+  max-width: 28rem;       
+  margin: 1.5rem auto;    
+  padding: 0.5rem;
+}
+
+.card {
+  max-width: 460px;       
+  margin: 0 auto;         
+  padding: 1.25rem;       
+}
+
+.waste-type-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: space-between;
+  padding: 0.4rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.waste-type-row > .waste-type-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.counter button {
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.05rem;
+  padding: 0;
+}
+
+.counter button:hover {
+  background-color: #e9eef2;
+}
+
+.counter span {
+  min-width: 1.6rem;
+  text-align: center;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+
+@media (max-width: 420px) {
+  .card { padding: 0.75rem; max-width: 92%; }
+  .waste-type-row { gap: 0.5rem; padding: 0.35rem; }
+  .waste-type-row > .waste-type-btn { white-space: normal; }
+}

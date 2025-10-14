@@ -12,7 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-collect',
   templateUrl: './collect.html',
-  styleUrl: './collect.css',
+  styleUrls: ['./collect.css'],
   imports: [CommonModule, RouterModule, ReactiveFormsModule]
 })
 
@@ -45,6 +45,20 @@ export class CollectComponent implements OnInit {
   ngOnInit() {
     this.getCities();
     this.getVolunteers();
+  }
+
+  increment(field: string) {
+    const control = this.collectForm.get(field);
+    if (control) {
+      control.setValue((control.value || 0) + 1 );
+    }
+  }
+
+  decrement(field: string) {
+    const control = this.collectForm.get(field);
+    if (control && control.value > 0) {
+      control.setValue(control.value - 1);
+    }
   }
 
   onSubmit() {
