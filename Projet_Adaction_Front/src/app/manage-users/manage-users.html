@@ -1,0 +1,14 @@
+<div *ngFor="let volunteer of volunteers" class="volunteer-item">
+  <div class="volunteer-info">
+    <span>{{ volunteer.firstname }} {{ volunteer.lastname }}</span>
+    <span>{{ volunteer.location }}</span>
+  </div>
+  <div class="volunteer-actions">
+    <button (click)="openEditModal(volunteer)" class="edit-button">
+      <img src="assets/icons/edit-icon.png" alt="Modifier" />
+    </button>
+    <button (click)="deleteVolunteer(volunteer.id)" class="delete-button">
+      <img src="assets/icons/delete-icon.png" alt="Supprimer" />
+    </button>
+  </div>
+</div>
