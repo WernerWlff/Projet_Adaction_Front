@@ -34,9 +34,9 @@ export class ManageUsersAddModal implements OnInit{
   }
 
   formatCurrentDate(): string {
-  const now = new Date();
-  return now.toISOString().split('T')[0]; // Exemple : "2025-10-16"
-}
+    const now = new Date();
+    return now.toISOString().split('T')[0];
+  }
 
 
   ngOnInit(): void {}

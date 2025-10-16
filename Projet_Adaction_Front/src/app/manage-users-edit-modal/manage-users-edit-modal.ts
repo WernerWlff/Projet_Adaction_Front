@@ -28,8 +28,17 @@ export class ManageUsersEditModal implements OnInit {
       firstname: [data.volunteer.firstname, [Validators.required]], 
       lastname: [data.volunteer.lastname, [Validators.required]],
       email: [data.volunteer.email, [Validators.required, Validators.email]],
-      location: [data.volunteer.location, [Validators.required]] 
+      password: [data.volunteer.password, [Validators.required]],
+      location: [data.volunteer.location, [Validators.required]],
+      updated_at: [this.formatCurrentDate()],
+      total_points: [data.volunteer.total_points],
+      donation_points: [data.volunteer.donation_points]
     });
+  }
+
+  formatCurrentDate(): string {
+    const now = new Date();
+    return now.toISOString().split('T')[0];
   }
 
   ngOnInit(): void {};
