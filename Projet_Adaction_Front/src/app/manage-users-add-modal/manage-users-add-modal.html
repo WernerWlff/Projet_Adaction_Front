@@ -1,0 +1,55 @@
+<h2 mat-dialog-title>Ajouter un.e bénévole</h2>
+<mat-dialog-content>
+  <form [formGroup]="addForm" class="add-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Prénom</mat-label>
+      <input matInput formControlName="firstname" />
+        <mat-error *ngIf="addForm.get('firstname')?.hasError('required') && addForm.get('firstname')?.touched">
+          Le prénom est requis.
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nom</mat-label>
+      <input matInput formControlName="lastname" />
+        <mat-error *ngIf="addForm.get('lastname')?.hasError('required') && addForm.get('lastname')?.touched">
+          Le nom est requis.
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+        <mat-error *ngIf="addForm.get('email')?.hasError('required') && addForm.get('email')?.touched">
+          L'email est requis.
+        </mat-error>
+        <mat-error *ngIf="addForm.get('email')?.hasError('email') && addForm.get('email')?.touched">
+          Format d'email invalide.
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Mot de passe</mat-label>
+      <input matInput type="password" formControlName="password" />
+        <mat-error *ngIf="addForm.get('password')?.hasError('required') && addForm.get('password')?.touched">
+          Le mot de passe est requis.
+        </mat-error>
+        <mat-error *ngIf="addForm.get('password')?.hasError('minlength') && addForm.get('password')?.touched">
+          Le mot de passe doit contenir au moins 6 caractères.
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Localisation</mat-label>
+      <input matInput formControlName="location" />
+        <mat-error *ngIf="addForm.get('location')?.hasError('required') && addForm.get('location')?.touched">
+          La localisation est requise.
+        </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Annuler</button>
+  <button mat-button (click)="onSave()" cdkFocusInitial>Ajouter</button>
+</mat-dialog-actions>

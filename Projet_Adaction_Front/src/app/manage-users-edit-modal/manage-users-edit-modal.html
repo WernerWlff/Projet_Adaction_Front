@@ -4,16 +4,28 @@
     <mat-form-field appearance="fill">
       <mat-label>Prénom</mat-label>
       <input matInput formControlName="firstname" />
+        <mat-error *ngIf="editForm.get('firstname')?.hasError('required') && editForm.get('firstname')?.touched">
+          Le prénom est requis.
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Nom</mat-label>
       <input matInput formControlName="lastname" />
+        <mat-error *ngIf="editForm.get('lastname')?.hasError('required') && editForm.get('lastname')?.touched">
+          Le nom est requis.
+        </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Email</mat-label>
       <input matInput formControlName="email" />
+      <mat-error *ngIf="editForm.get('email')?.hasError('required') && editForm.get('email')?.touched">
+        L'email est requis.
+      </mat-error>
+      <mat-error *ngIf="editForm.get('email')?.hasError('email') && editForm.get('email')?.touched">
+        Format d'email invalide.
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
@@ -24,6 +36,9 @@
     <mat-form-field appearance="fill">
       <mat-label>Localisation</mat-label>
       <input matInput formControlName="location" />
+        <mat-error *ngIf="editForm.get('location')?.hasError('required') && editForm.get('location')?.touched">
+          La localisation est requise.
+        </mat-error>
     </mat-form-field>
   </form>
 </mat-dialog-content>

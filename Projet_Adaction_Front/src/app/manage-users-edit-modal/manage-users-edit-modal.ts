@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialogContent, MatDialogModule } from '@angular/material/dialog';
 import { Volunteer } from '../services/volunteer';
 import { MatFormField, MatInputModule } from "@angular/material/input";
@@ -7,6 +7,7 @@ import { MatDialogActions } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
+  standalone: true,
   selector: 'app-manage-users-edit-modal',
   imports: [MatInputModule, MatDialogContent, MatDialogActions, MatFormField, MatDialogModule, ReactiveFormsModule],
   templateUrl: './manage-users-edit-modal.html',
@@ -22,11 +23,10 @@ export class ManageUsersEditModal implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: {volunteer: Volunteer}
   ) {
     this.editForm = this.fb.group({
-      firstname: [data.volunteer.firstname], 
-      lastname: [data.volunteer.lastname],
-      email: [data.volunteer.email],
-      password: [data.volunteer.password], 
-      location: [data.volunteer.location] 
+      firstname: [data.volunteer.firstname, [Validators.required]], 
+      lastname: [data.volunteer.lastname, [Validators.required]],
+      email: [data.volunteer.email, [Validators.required, Validators.email]],
+      location: [data.volunteer.location, [Validators.required]] 
     });
   }
 

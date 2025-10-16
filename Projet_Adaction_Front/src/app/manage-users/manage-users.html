@@ -1,4 +1,25 @@
-<div *ngFor="let volunteer of volunteers" class="volunteer-item">
+<div class="add-volunteer-container">
+  <button mat-raised-button color="primary" class="add-volunteer-button" (click)="openAddModal()">
+    <mat-icon>add</mat-icon> Ajouter un.e bénévole
+  </button>
+</div>
+
+<div class="search-filter-container">
+  <mat-form-field appearance="outline" class="search-field">
+    <mat-label>Rechercher un.e bénévole</mat-label>
+    <input matInput [(ngModel)]="searchQuery" placeholder="Rechercher...">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="filter-field">
+    <mat-label>Ville</mat-label>
+    <mat-select [(ngModel)]="selectedCity">
+      <mat-option value="">Toutes les villes</mat-option>
+      <mat-option *ngFor="let city of cities" [value]="city">{{ city }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div *ngFor="let volunteer of filteredVolunteers" class="volunteer-item">
   <div class="volunteer-info">
     <span>{{ volunteer.firstname }} {{ volunteer.lastname }}</span>
     <span>{{ volunteer.location }}</span>
