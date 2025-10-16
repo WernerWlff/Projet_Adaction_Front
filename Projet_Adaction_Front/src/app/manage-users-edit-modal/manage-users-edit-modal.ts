@@ -2,14 +2,16 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialogContent, MatDialogModule } from '@angular/material/dialog';
 import { Volunteer } from '../services/volunteer';
-import { MatFormField, MatInputModule } from "@angular/material/input";
+import { MatInputModule } from "@angular/material/input";
 import { MatDialogActions } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
   standalone: true,
   selector: 'app-manage-users-edit-modal',
-  imports: [MatInputModule, MatDialogContent, MatDialogActions, MatFormField, MatDialogModule, ReactiveFormsModule],
+  imports: [MatInputModule, MatDialogContent, MatDialogActions, MatDialogModule, ReactiveFormsModule, CommonModule, MatFormFieldModule],
   templateUrl: './manage-users-edit-modal.html',
   styleUrls: ['./manage-users-edit-modal.css']
 })

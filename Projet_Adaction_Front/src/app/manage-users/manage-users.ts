@@ -6,15 +6,16 @@ import { Volunteer, VolunteerService } from '../services/volunteer';
 import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button';
 import { ManageUsersAddModal } from '../manage-users-add-modal/manage-users-add-modal';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select'
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   standalone: true,
   selector: 'app-manage-users',
-  imports: [CommonModule, MatIconModule, MatButtonModule, FormsModule, MatSelectModule, MatFormFieldModule, MatInputModule],
+  imports: [CommonModule, MatIconModule, MatButtonModule, FormsModule, MatSelectModule, MatFormFieldModule, MatInputModule, MatDialogModule, ReactiveFormsModule],
   templateUrl: './manage-users.html',
   styleUrls: ['./manage-users.css']
 })

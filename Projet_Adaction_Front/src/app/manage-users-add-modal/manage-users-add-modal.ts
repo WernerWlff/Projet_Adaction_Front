@@ -5,12 +5,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogContent, MatDialogActions } from '@angular/material/dialog';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   standalone: true,
   selector: 'app-manage-users-add-modal',
-  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatDialogContent, MatDialogActions],
+  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatDialogContent, MatDialogActions, CommonModule],
   templateUrl: './manage-users-add-modal.html',
   styleUrls: ['./manage-users-add-modal.css']
 })
@@ -25,8 +26,18 @@ export class ManageUsersAddModal implements OnInit{
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       location: ['' , [Validators.required]],
+      total_points: [0],
+      donation_points: [0],
+      created_at: [this.formatCurrentDate()],
+      updated_at: [this.formatCurrentDate()]
     });
   }
+
+  formatCurrentDate(): string {
+  const now = new Date();
+  return now.toISOString().split('T')[0]; // Exemple : "2025-10-16"
+}
+
 
   ngOnInit(): void {}
 
