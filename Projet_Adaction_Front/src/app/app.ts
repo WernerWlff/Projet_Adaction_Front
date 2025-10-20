@@ -1,12 +1,25 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, signal, OnInit } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { Router, RouterOutlet } from '@angular/router';
 import { AuthService } from './services/auth';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, CommonModule],
+  imports: [
+    RouterOutlet,
+    MatDialogModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    CommonModule,
+  ],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })

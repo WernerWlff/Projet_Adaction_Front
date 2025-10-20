@@ -1,0 +1,20 @@
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+
+mat-dialog-actions {
+  padding: 16px;
+  gap: 8px;
+}
+
+[mat-dialog-close] {
+  background-color: #4CAF50; /* Vert */
+  color: white;
+}
+
+[mat-dialog-close]:last-of-type {
+  background-color: #607D8B; /* Gris */
+}

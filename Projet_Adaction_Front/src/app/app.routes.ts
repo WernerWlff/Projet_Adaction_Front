@@ -3,6 +3,8 @@ import { VolunteerListComponent } from './volunteers/volunteer-list/volunteer-li
 import { CollectComponent } from './collect/collect';
 import { AddVolunteerComponent } from './add-volunteer/add-volunteer.component';
 import { LoginComponent } from './login/login';
+import { ManageUsers } from './manage-users/manage-users';
+
 
 export const routes: Routes = [
   { path: 'volunteers', component: VolunteerListComponent },
@@ -10,4 +12,5 @@ export const routes: Routes = [
   { path: 'collects', component: CollectComponent},
   {path: 'login', component: LoginComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'manage-users', component: ManageUsers}
 ];

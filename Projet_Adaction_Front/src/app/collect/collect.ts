@@ -12,7 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-collect',
   templateUrl: './collect.html',
-  styleUrl: './collect.css',
+  styleUrls: ['./collect.css'],
   imports: [CommonModule, RouterModule, ReactiveFormsModule]
 })
 
@@ -47,9 +47,32 @@ export class CollectComponent implements OnInit {
     this.getVolunteers();
   }
 
+  increment(field: string) {
+    const control = this.collectForm.get(field);
+    if (control) {
+      control.setValue((control.value || 0) + 1 );
+    }
+  }
+
+  decrement(field: string) {
+    const control = this.collectForm.get(field);
+    if (control && control.value > 0) {
+      control.setValue(control.value - 1);
+    }
+  }
+
   onSubmit() {
     if (this.collectForm.valid) {
-      this.collectService.createCollect(this.collectForm.value).subscribe(
+      const formValue = this.collectForm.value;
+      const payload = {
+        ...formValue,
+        city: { id: formValue.city_id },
+        volunteer: { id: formValue.volunteer_id }
+      };
+      delete payload.city_id;
+      delete payload.volunteer_id;
+
+      this.collectService.createCollect(payload).subscribe(
         (collect) => {
           console.log('Collecte enregistrée :', collect);
           this.collectForm.reset();
@@ -57,9 +80,9 @@ export class CollectComponent implements OnInit {
         (error) => {
           console.error('Erreur lors de l\'enregistrement de la collecte :', error);
         }
-      );
-    }
+    );
   }
+}
 
   private getCities() {
     this.cityService.getAllCities().subscribe(

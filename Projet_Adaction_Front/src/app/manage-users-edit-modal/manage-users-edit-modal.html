@@ -1,0 +1,49 @@
+<h2 mat-dialog-title>Modifier le bénévole</h2>
+<mat-dialog-content>
+  <form [formGroup]="editForm" class="edit-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Prénom</mat-label>
+      <input matInput formControlName="firstname" />
+        <mat-error *ngIf="editForm.get('firstname')?.hasError('required') && editForm.get('firstname')?.touched">
+          Le prénom est requis.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nom</mat-label>
+      <input matInput formControlName="lastname" />
+        <mat-error *ngIf="editForm.get('lastname')?.hasError('required') && editForm.get('lastname')?.touched">
+          Le nom est requis.
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+      <mat-error *ngIf="editForm.get('email')?.hasError('required') && editForm.get('email')?.touched">
+        L'email est requis.
+      </mat-error>
+      <mat-error *ngIf="editForm.get('email')?.hasError('email') && editForm.get('email')?.touched">
+        Format d'email invalide.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Mot de passe</mat-label>
+      <input matInput type="password" formControlName="password" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Localisation</mat-label>
+      <input matInput formControlName="location" />
+        <mat-error *ngIf="editForm.get('location')?.hasError('required') && editForm.get('location')?.touched">
+          La localisation est requise.
+        </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close (click)="onCancel()">Annuler</button>
+  <button mat-button [mat-dialog-close]="editForm.value" (click)="onSave()" cdkFocusInitial>Modifier</button>
+</mat-dialog-actions>
