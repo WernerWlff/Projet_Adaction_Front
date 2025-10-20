@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { decodeToken } from './token-util';
 
 @Injectable({
   providedIn: 'root'
@@ -33,11 +34,17 @@ export class AuthService {
     return !!this.getToken();
   }
 
-  // Méthode de logout
+  
   logout() {
     this.clearToken();
-    // tu peux gérer la redirection ici si tu veux
-    // par ex. this.router.navigate(['/login']);
+    
+    
+  }
+
+ getUserInfo(): any {
+    const token = this.getToken();
+    if (!token) return null;
+    return decodeToken(token);
   }
 
 }
