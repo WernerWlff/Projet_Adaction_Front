@@ -39,7 +39,9 @@ export class LoginComponent {
       next: (response: any) => {
         localStorage.setItem('token', response.token);
         this.router.navigate(['/']); 
+        this.router.navigate(['/collects']);
       },
+      
       error: () => {
         this.errorMessage = 'Identifiants incorrects';
         this.loading = false;
