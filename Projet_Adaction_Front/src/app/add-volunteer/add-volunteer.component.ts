@@ -27,7 +27,7 @@ export class AddVolunteerComponent {
       this.volunteerService.addVolunteer(newVolunteer).subscribe({
         next: (v: Volunteer) => {
           console.log('Bénévole ajouté', v);
-          this.volunteerForm.reset(); // réinitialise le formulaire
+          this.volunteerForm.reset();
         },
         error: (err: any) => console.error('Erreur ajout bénévole', err)
       });
